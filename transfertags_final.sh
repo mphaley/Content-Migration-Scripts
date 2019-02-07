@@ -5,7 +5,7 @@ timer_tokentwo=$SECONDS
 #################################
 echo "first token: halyard"
 
-raw_token=$(curl -X POST https://halyard.showpad.biz/api/v2/oauth2/token -H 'Authorization: Basic TTJObVlUUmlNbVptTkRRd1lUSTNNR015TlRneE5HUm1Nak5oTm1Gak9XSmhOMkl4TkRFM1pnPT06MmU1NjIxNzRlYWI2OTM2M2RkYTYyZDQ0YTVjZmE2ZGE2ZjYxZjhkOQ==' -H 'content-type: multipart/form-data' -F grant_type=password -F username=michael.haley@showpad.com -F password=Showpad1 | tr -d ' ')
+raw_token=$(curl -X POST https://halyard.showpad.biz/api/v2/oauth2/token -H 'Authorization: Basic XXXXXXXXXXXXXXX' -H 'content-type: multipart/form-data' -F grant_type=password -F username=michael.haley@showpad.com -F password=XXXXXXXXXXXXXXX | tr -d ' ')
 
 access_token_1=$( echo "$raw_token" | jq -r .access_token) #
 refresh_token_1=$( echo "$raw_token" | jq -r .refresh_token)
@@ -15,7 +15,7 @@ refresh_token_1=$( echo "$raw_token" | jq -r .refresh_token)
 #################################
 echo "Second Token: avanosmedical"
 
-raw_token_2=$(curl -X POST https://avanosmedical.showpad.biz/api/v2/oauth2/token -H 'Authorization: Basic WmpVMU5tRmpZVFJtWkRGaU9HRTBZVGd3TW1Sak9HVmhZemt3WVRWall6TmhORFZqWXpWaVl3PT06NGE4OGNmZTliMTZiYTgyZWU5MTM5NmM2NWJjZTQ5Njk5Y2Y5YTFjOA==' -H 'content-type: multipart/form-data' -F grant_type=password -F username=michael.haley@showpad.com -F password=Showpad1 | tr -d ' ')
+raw_token_2=$(curl -X POST https://avanosmedical.showpad.biz/api/v2/oauth2/token -H 'Authorization: Basic XXXXXXXXXXXXXXX' -H 'content-type: multipart/form-data' -F grant_type=password -F username=michael.haley@showpad.com -F password=XXXXXXXXXXXXXXX | tr -d ' ')
 
 access_token_2=$( echo "$raw_token_2" | jq -r .access_token)
 refresh_token_2=$( echo "$raw_token_2" | jq -r .refresh_token)
@@ -42,7 +42,7 @@ do
 	then
 		echo "We're generating that other new token y'all"
 		#generate new token
-		new_token2=$(curl -X POST https://avanosmedical.showpad.biz/api/v2/oauth2/token -H 'Authorization: Basic WmpVMU5tRmpZVFJtWkRGaU9HRTBZVGd3TW1Sak9HVmhZemt3WVRWall6TmhORFZqWXpWaVl3PT06NGE4OGNmZTliMTZiYTgyZWU5MTM5NmM2NWJjZTQ5Njk5Y2Y5YTFjOA==' -H 'content-type: multipart/form-data' -F grant_type=refresh_token -F refresh_token="$refresh_token_2" | tr -d ' ' )
+		new_token2=$(curl -X POST https://avanosmedical.showpad.biz/api/v2/oauth2/token -H 'Authorization: Basic XXXXXXXXXXXXXXX' -H 'content-type: multipart/form-data' -F grant_type=refresh_token -F refresh_token="$refresh_token_2" | tr -d ' ' )
 
 		access_token_2=$( echo "$new_token2" | jq -r .access_token)
 		refresh_token_2=$( echo "$new_token2" | jq -r .refresh_token)
